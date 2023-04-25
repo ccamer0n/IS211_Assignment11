@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <form action="/submit" method="post">
+            <input type="text" name="task"></input>
+            <input type="text" name="email"></input>
+            <select name="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <input type="submit" value="Add To Do Item">
+        </form>
+        <table style ="width:100%">
+            <tr>
+                <th>Task</th>
+                <th>Assignee</th>
+                <th>Priority</th>
+            </tr>
+            {% for line in to_do %}
+            <tr>
+            {% for item in line %}
+                <td>{{ item }}</td>
+            {% endfor %}
+            </tr>
+            {% endfor %}            
+        </table>
+        </ol>
+        <form action="/clear" method="post">
+            <input type="submit" value="Clear">
+        </form>
+    </body>
+</html>
