@@ -19,7 +19,6 @@ def add_to_list():
     if re.fullmatch(pattern, email):
         if priority == 'low' or 'medium' or 'high':
             line = [task, email, priority]
-            #line = f"{task}, {email}, {priority} priority."
             to_do.append(line)
     else:
         pass
